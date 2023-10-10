@@ -2,15 +2,41 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Fonts\" />
-    <Folder Include="Images\" />
-    <Folder Include="MVVM\" />
+    <None Remove="Assets\background.jpg" />
+    <None Remove="Assets\knob.png" />
+    <None Remove="Assets\knobMaster.png" />
+    <None Remove="Assets\knobMaster2.png" />
+    <None Remove="Assets\knobVolumeMaster.png" />
+    <None Remove="Assets\oscilador-2.jpg" />
+    <None Remove="Assets\synth-name.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\knobVolumeMaster.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\background.jpg" />
+    <Resource Include="Assets\knob.png" />
+    <Resource Include="Assets\knobMaster.png" />
+    <Resource Include="Assets\oscilador-2.jpg" />
+    <Resource Include="Assets\synth-name.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Controls\Lfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
   </ItemGroup>
 
 </Project>

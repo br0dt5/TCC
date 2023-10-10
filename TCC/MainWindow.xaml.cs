@@ -9,69 +9,40 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-
-namespace TCC
+namespace Synthesizer
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool isDragging = false;
-        private Point startPoint;
-
         public MainWindow()
         {
             InitializeComponent();
-            this.MouseLeftButtonDown += Window_MouseLeftButtonDown;
-            this.MouseLeftButtonUp += Window_MouseLeftButtonUp;
-            this.MouseMove += Window_MouseMove;
-
+            DataContext = new ViewModel.MainViewModel();
+            
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
+            if(e.LeftButton == MouseButtonState.Pressed)
             {
-                isDragging = true;
-                startPoint = e.GetPosition(this);
+                DragMove();
             }
         }
 
-        private void Window_MouseMove(object sender, MouseEventArgs e)
+        private void CloseWindow_Click(object sender, RoutedEventArgs e)
         {
-            if (isDragging)
-            {
-                Point mousePosition = e.GetPosition(this);
-                double deltaX = mousePosition.X - startPoint.X;
-                double deltaY = mousePosition.Y - startPoint.Y;
-
-                Left += deltaX;
-                Top += deltaY;
-            }
+            this.Close();
         }
 
-        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void MinimizeWindow_Click(object sender, RoutedEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Left)
-            {
-                isDragging = false;
-            }
-        }
-
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
+            this.WindowState = WindowState.Minimized;
         }
     }
 }
