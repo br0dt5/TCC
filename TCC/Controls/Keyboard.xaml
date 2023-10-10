@@ -1,0 +1,217 @@
+﻿<UserControl x:Class="Synthesizer.Controls.Keyboard"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Synthesizer.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <UserControl.Resources>
+        <Style x:Key="WhiteButton" TargetType="Button">
+            
+            <Setter Property="Background" Value="White" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="VerticalContentAlignment" Value="Bottom" />
+            <Setter Property="FontSize" Value="20px" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Button Background="{ TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Bottom" Margin="0,0,0,-55"/>
+                        </Button>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="#00ff30" />
+                </Trigger>
+            </Style.Triggers>
+            
+        </Style>
+        <Style x:Key="BlackButton" TargetType="Button">
+
+            <Setter Property="Width" Value="25" />
+            <Setter Property="Height" Value="80" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Background" Value="Black" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="VerticalContentAlignment" Value="Bottom" />
+            <Setter Property="FontSize" Value="20px" />
+
+        </Style>
+    </UserControl.Resources>
+
+    <Grid Width="640" Height="154">
+       
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height="*" />
+            
+        </Grid.RowDefinitions>
+      
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+            
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="0"
+             Content="Q"
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+            Grid.Column="1"
+            Content="2"        
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="2"
+             Content="4"
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="3"
+             Content="5"
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="4"
+             Content="7"
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="5"
+             Content="9"
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="6"
+             Content="P"
+            />
+
+            <Button Style="{StaticResource BlackButton}"
+             Grid.Column="0"
+             Grid.ColumnSpan="2"
+             Content="1"       
+            />
+
+            <Button Style="{StaticResource BlackButton}"
+             Grid.Column="1"         
+             Grid.ColumnSpan="2"
+             Content="3"
+            />
+
+            <Button Style="{StaticResource BlackButton}"
+             Grid.Column="3"
+             Grid.ColumnSpan="2"
+             Content="6"
+             />
+
+
+            <Button Style="{StaticResource BlackButton}"
+             Grid.Column="4"       
+             Grid.ColumnSpan="2"
+             Content="8"
+            />
+
+            <Button Style="{StaticResource BlackButton}" 
+             Grid.ColumnSpan="2"
+             Grid.Column="5"
+             Content="0"
+             />
+
+        
+
+            <!--// Second Octave //-->
+
+
+        
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="7"
+             Content="A"
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+            Grid.Column="8"
+            Content="D"        
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="9"
+             Content="G"
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="10"
+             Content="H"
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="11"
+             Content="K"
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="12"
+             Content="Ç"
+            />
+
+            <Button Style="{ StaticResource WhiteButton }" 
+             Grid.Column="13"
+             Content="X"
+            />
+
+            <Button Style="{StaticResource BlackButton}"
+             Grid.Column="7"         
+             Grid.ColumnSpan="2"
+             Content="S"
+            />
+
+            <Button Style="{StaticResource BlackButton}"
+             Grid.Column="8"
+             Grid.ColumnSpan="2"
+             Content="F"
+             />
+
+            <Button Style="{StaticResource BlackButton}"
+             Grid.Column="10"       
+             Grid.ColumnSpan="2"
+             Content="J"
+            />
+
+            <Button Style="{StaticResource BlackButton}" 
+             Grid.ColumnSpan="2"
+             Grid.Column="11"
+             Content="L"
+             />
+
+            <Button Style="{StaticResource BlackButton}"
+             Grid.Column="12"
+             Grid.ColumnSpan="2"
+             Content="Z"       
+            />
+        </Grid>
+    </Grid>
+</UserControl>

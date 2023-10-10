@@ -2,15 +2,18 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <ApplicationDefinition Update="App.xaml">
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
+    <Compile Update="Controls\Menu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Controls\OctavesControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="MainWindow.xaml">
+    <Page Update="Controls\Menu.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Theme\closeAndMinimizeButtons.xaml">
+    <Page Update="Controls\OctavesControl.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

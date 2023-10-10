@@ -1,0 +1,218 @@
+﻿<UserControl x:Class="Synthesizer.Controls.Oscillator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Synthesizer.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="252" d:DesignWidth="218">
+    
+    <StackPanel Grid.Column="1" Grid.Row="0">
+        <Border  BorderThickness="2,2,2,2" 
+         BorderBrush="#F28907"
+         Height="252" 
+         Width="218"
+         >
+            <Grid Background="#20D9D9D9">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="39" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0"
+                  Width="120"
+                  Height="39"
+                  Background="#444444"
+                  HorizontalAlignment="Right"                                              
+                  BorderThickness="0.5"
+                  BorderBrush="Black"
+                  >
+                </Border>
+
+                <Label Margin="10,0,0,0"
+               VerticalAlignment="Center"
+               FontWeight="SemiBold"
+               FontSize="22"                                           
+               Foreground="#F28907"                                      
+               >
+                    OSC 1
+                </Label>
+
+                <Border Grid.Row="1"
+                BorderBrush="Black"
+                BorderThickness="0.5"
+                Margin="3,2,3,2"
+                CornerRadius="5"
+                >
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="61" />
+                            <RowDefinition Height="*" />
+
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition Width="*" />
+                          
+
+                        </Grid.ColumnDefinitions>
+
+
+                        <Grid Width="92" Grid.ColumnSpan="2">
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+
+                            </Grid.RowDefinitions>
+
+
+                            <Label Grid.Row="0"
+                           Foreground="White"
+                           >
+                                Form.da onda
+                            </Label>
+
+                            <Border Grid.Row="1" 
+                        BorderBrush="#9E9E9E"
+                        BorderThickness="3"
+                        CornerRadius="2"
+                        >
+                                <ComboBox 
+                               Background="Black"
+                               >
+                                    <ComboBoxItem IsSelected="True" Content="Senoidal"/>
+                                    <ComboBoxItem Content="Quadrada"/>
+                                    <ComboBoxItem Content="Triangular"/>
+                                </ComboBox>
+                            </Border>
+
+                        </Grid>
+
+                        <GroupBox BorderThickness="0" Grid.Row="1"
+                          Grid.Column="0"
+                          HorizontalAlignment="Right"                                                   
+                          Height="98"
+                          >
+                            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                                <Grid.RowDefinitions>
+                               
+                                    <RowDefinition Height="*"/>
+                                    
+
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="2" Grid.Column="1" FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center"
+                                Margin="-125,-15,0,0" Foreground="White">
+                                    Amplitude
+                                </Label>
+                                <local:RotaryControl HorizontalAlignment="Left"
+                                x:Name="_dialVolume2" Grid.RowSpan="2" Grid.Row="0"
+                                    Foreground="DarkRed" Background="Transparent" 
+                                    Value="{Binding Amplitude, Mode=TwoWay}" Margin="-70,-40,0,0">
+
+                                    <local:RotaryControl.NumberOfMajorTicks>6</local:RotaryControl.NumberOfMajorTicks>
+                                    <local:RotaryControl.MajorTickIncrement>0.2</local:RotaryControl.MajorTickIncrement>
+                                    <local:RotaryControl.MajorTickBrush>#F28907</local:RotaryControl.MajorTickBrush>
+                                    <local:RotaryControl.NumberOfMinorTicks>9</local:RotaryControl.NumberOfMinorTicks>
+                                    <local:RotaryControl.MinorTickBrush>#F28907</local:RotaryControl.MinorTickBrush>
+                                    <local:RotaryControl.FontBrush>Transparent</local:RotaryControl.FontBrush>
+                                    <local:RotaryControl.PointerFill>
+                                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                            <GradientStop Color="#e26900" Offset="0"/>
+                                            <GradientStop Color="#F28907" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </local:RotaryControl.PointerFill>
+                                    <local:RotaryControl.MinorTickDialRadius>37</local:RotaryControl.MinorTickDialRadius>
+                                    <local:RotaryControl.MajorTickDialRadius>43</local:RotaryControl.MajorTickDialRadius>
+                                    <local:RotaryControl.LabelDialRadius>50</local:RotaryControl.LabelDialRadius>
+                                    <local:RotaryControl.InnerDialRadius>35</local:RotaryControl.InnerDialRadius>
+                                    <local:RotaryControl.InnerDialFill>
+                                        <ImageBrush ImageSource="/Assets/knob.png" />
+                                    </local:RotaryControl.InnerDialFill>
+
+                                    <local:RotaryControl.OuterDialBorderThickness>0</local:RotaryControl.OuterDialBorderThickness>
+                                    <local:RotaryControl.OuterDialFill>
+                                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                            <GradientStop Color="Transparent" Offset="0"/>
+                                            <GradientStop Color="Transparent" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </local:RotaryControl.OuterDialFill>
+                                    <local:RotaryControl.LayoutTransform>
+                                        <ScaleTransform  ScaleX="0.75" ScaleY="0.75"/>
+                                    </local:RotaryControl.LayoutTransform>
+                                </local:RotaryControl>
+
+                                <Label Grid.Row="2" Grid.Column="1" Content="{Binding Amplitude}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                                Margin="-125,0,0,-10" Foreground="White"/>
+
+                                <!--// Grid.Row="0" Height="50" Width="50"//-->
+                                <Label Grid.Row="2" Grid.Column="1" FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center"
+                                Margin="0,-15,-12,0" Foreground="White">
+                                    Frequência
+                                </Label>
+                                
+                                <local:RotaryControl 
+                                x:Name="_dialVolume" Grid.RowSpan="2" Grid.Row="0"
+                                    Foreground="DarkRed" Background="Transparent" 
+                                    Value="{Binding Frequency, Mode=TwoWay}" Margin="0,-40,-12,0">
+
+                                    <local:RotaryControl.NumberOfMajorTicks>6</local:RotaryControl.NumberOfMajorTicks>
+                                    <local:RotaryControl.MajorTickIncrement>0.2</local:RotaryControl.MajorTickIncrement>
+                                    <local:RotaryControl.MajorTickBrush>#F28907</local:RotaryControl.MajorTickBrush>
+                                    <local:RotaryControl.NumberOfMinorTicks>9</local:RotaryControl.NumberOfMinorTicks>
+                                    <local:RotaryControl.MinorTickBrush>#F28907</local:RotaryControl.MinorTickBrush>
+                                    <local:RotaryControl.FontBrush>Transparent</local:RotaryControl.FontBrush>
+                                    <local:RotaryControl.PointerFill>
+                                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                            <GradientStop Color="#e26900" Offset="0"/>
+                                                <GradientStop Color="#F28907" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </local:RotaryControl.PointerFill>
+                                    <local:RotaryControl.MinorTickDialRadius>37</local:RotaryControl.MinorTickDialRadius>
+                                    <local:RotaryControl.MajorTickDialRadius>43</local:RotaryControl.MajorTickDialRadius>
+                                    <local:RotaryControl.LabelDialRadius>50</local:RotaryControl.LabelDialRadius>
+                                    <local:RotaryControl.InnerDialRadius>35</local:RotaryControl.InnerDialRadius>
+                                    <local:RotaryControl.InnerDialFill>
+                                        <ImageBrush ImageSource="/Assets/knob.png" />
+                                    </local:RotaryControl.InnerDialFill>
+
+                                    <local:RotaryControl.OuterDialBorderThickness>0</local:RotaryControl.OuterDialBorderThickness>
+                                    <local:RotaryControl.OuterDialFill>
+                                        <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
+                                            <GradientStop Color="Transparent" Offset="0"/>
+                                            <GradientStop Color="Transparent" Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </local:RotaryControl.OuterDialFill>
+                                    <local:RotaryControl.LayoutTransform>
+                                        <ScaleTransform  ScaleX="0.75" ScaleY="0.75"/>
+                                    </local:RotaryControl.LayoutTransform>
+                                </local:RotaryControl>
+                                <Label Grid.Row="2" Grid.Column="1" Content="{Binding Frequency}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                                       Margin="0,0,-10,-10" Foreground="White"/>
+
+                                
+                            </Grid>
+                            
+
+                        </GroupBox>
+
+                        
+
+
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+    </StackPanel>
+</UserControl>
