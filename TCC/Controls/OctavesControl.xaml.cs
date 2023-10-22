@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Synthesizer.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +21,13 @@ namespace Synthesizer.Controls
     /// Interação lógica para OctavesControl.xam
     /// </summary>
     public partial class OctavesControl : UserControl
-    {
+    {        
         public OctavesControl()
-        {
+        {            
             InitializeComponent();
+           
         }
+
+       
     }
 }

@@ -19,10 +19,13 @@ namespace Synthesizer.Controls
     /// Interação lógica para Keyboard.xam
     /// </summary>
     public partial class Keyboard : UserControl
-    {
+    {        
         public Keyboard()
         {
             InitializeComponent();
+           
         }
+
+       
     }
 }

@@ -5,7 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Synthesizer.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="61" d:DesignWidth="800">
+             d:DesignHeight="61" d:DesignWidth="800"
+             x:Name="OctaveWindow"
+             >
     <Grid Height="61" Width="218">
         <Grid Width="70" Grid.ColumnSpan="2">
 
@@ -30,13 +32,13 @@
             CornerRadius="2"
             >
                 <ComboBox 
-               Background="Black"
-               >
-                    <ComboBoxItem IsSelected="True" Content="2"/>
-                    <ComboBoxItem Content="4"/>
-                    <ComboBoxItem Content="6"/>
-                    <ComboBoxItem Content="8"/>
-                </ComboBox>
+                Name="ComboBoxOctave"
+                Background="Black"                     
+                ItemsSource="{Binding OctaveCollection}"
+                DisplayMemberPath="Octave"
+               />
+
+
             </Border>
 
         </Grid>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NAudio.Wave.SampleProviders;
+using Synthesizer.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +21,12 @@ namespace Synthesizer.Controls
     /// Interação lógica para Oscillator.xam
     /// </summary>
     public partial class Oscillator : UserControl
-    {
+    {       
         public Oscillator()
         {
-            InitializeComponent();
-            //Oscillator oscillator = new Oscillator();
-            //DataContext = oscillator;
+            InitializeComponent();            
+          
         }
+        
     }
 }
