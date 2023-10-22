@@ -1,6 +1,5 @@
 ﻿using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
-using Synthesizer.Commands;
 using Synthesizer.Controls;
 using System;
 using System.Collections.Generic;
@@ -67,27 +66,13 @@ namespace Synthesizer.ViewModel
             OctaveCollection = new ObservableCollection<OctaveViewModel>
             {
                 new OctaveViewModel { Octave = 2 },
-                new OctaveViewModel { Octave = 4 },
-                new OctaveViewModel { Octave = 6 },
-                new OctaveViewModel { Octave = 8 }
-            };            
-
-            ChangeOctaveCommand = new RelayCommand(ChangeOctave, CanChangeOctave);
+                new OctaveViewModel { Octave = 4 },             
+            };                        
 
             GenerateKeyboardNotes();
         }
 
-        private bool CanChangeOctave(object obj)
-        {
-            return true;
-        }
-
-        private void ChangeOctave(object obj)
-        {
-
-            MessageBox.Show("Hello");
-
-        }
+       
 
         public void PlayWaveProvider(float NoteIndex)
         {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D7O7PrJd9hYvZqB+pst0m/KrqhvJe5w6HZpUtCmltRaIqfzHeFZ96vnhw/egQrDIP4UkTQTWVh9kXH957gTFMg==",
+  "dgSpecHash": "WKUZl1L0ltymn14QlZTE5zvLWyuGFgBQx8420relGeDYdWWmVBKsRRIGqmgl2YQxP5f5wHH1CrMAnh8XyNkVyA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\david\\Documents\\csharp\\TCC\\TCC\\Synthesizer.csproj",
+  "projectFilePath": "C:\\Users\\david\\Desktop\\tCC\\TCC\\Synthesizer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\david\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

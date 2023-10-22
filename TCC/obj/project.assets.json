@@ -492,11 +492,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\david\\Documents\\csharp\\TCC\\TCC\\Synthesizer.csproj",
+      "projectUniqueName": "C:\\Users\\david\\Desktop\\tCC\\TCC\\Synthesizer.csproj",
       "projectName": "Synthesizer",
-      "projectPath": "C:\\Users\\david\\Documents\\csharp\\TCC\\TCC\\Synthesizer.csproj",
+      "projectPath": "C:\\Users\\david\\Desktop\\tCC\\TCC\\Synthesizer.csproj",
       "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\david\\Documents\\csharp\\TCC\\TCC\\obj\\",
+      "outputPath": "C:\\Users\\david\\Desktop\\tCC\\TCC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
