@@ -83,12 +83,17 @@
                         BorderThickness="3"
                         CornerRadius="2"
                         >
-                                <ComboBox 
-                               Background="Black"
+                               <ComboBox 
+                               Name="WaveShapeComboBox"
+                               Background="Black"                                  
                                >
                                     <ComboBoxItem IsSelected="True" Content="Senoidal"/>
                                     <ComboBoxItem Content="Quadrada"/>
                                     <ComboBoxItem Content="Triangular"/>
+                                    <ComboBoxItem Content="Dente.Serra"/>
+                                    <ComboBoxItem Content="Ruído.Branco"/>
+                                    <ComboBoxItem Content="Pink"/>
+                                    <ComboBoxItem Content="Sweep"/>
                                 </ComboBox>
                             </Border>
 

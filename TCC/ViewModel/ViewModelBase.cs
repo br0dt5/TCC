@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Synthesizer.ViewModel
 {
@@ -16,7 +17,7 @@ namespace Synthesizer.ViewModel
         {
             if (PropertyChanged != null)
             {
-                PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+                PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));                
             }
         }
 
