@@ -487,19 +487,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\david\\.nuget\\packages\\": {}
+    "C:\\Users\\valdi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\david\\Documents\\csharp\\TCC\\TCC\\Synthesizer.csproj",
+      "projectUniqueName": "C:\\Users\\valdi\\Documents\\meus-projetos-dotnet\\TCC\\TCC\\Synthesizer.csproj",
       "projectName": "Synthesizer",
-      "projectPath": "C:\\Users\\david\\Documents\\csharp\\TCC\\TCC\\Synthesizer.csproj",
-      "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\david\\Documents\\csharp\\TCC\\TCC\\obj\\",
+      "projectPath": "C:\\Users\\valdi\\Documents\\meus-projetos-dotnet\\TCC\\TCC\\Synthesizer.csproj",
+      "packagesPath": "C:\\Users\\valdi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\valdi\\Documents\\meus-projetos-dotnet\\TCC\\TCC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\david\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\valdi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -549,7 +549,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

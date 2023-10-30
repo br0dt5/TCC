@@ -3,7 +3,6 @@ using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using Synthesizer.Controls;
 using Synthesizer.Models;
-using Synthesizer.Utils;
 using Synthesizer.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -20,7 +19,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TCC.Core;
 
 namespace Synthesizer
 {
@@ -70,12 +68,14 @@ namespace Synthesizer
                 Button button = (Button)this.keyboard.FindName($"{keyNote}");
                 
                 button.Background = Brushes.DeepSkyBlue;
+
+                SignalGeneratorType WaveShape = OscillatorViewModel.SelectWaveShape(Oscillator1.WaveShapeComboBox.SelectedIndex);
+                mainViewModel.CurrentOscillator1.SelectedWaveShape = WaveShape;
+
+                mainViewModel.PlayWaveProvider(keyIndex);
             }
 
-            SignalGeneratorType WaveShape = OscillatorViewModel.SelectWaveShape(Oscillator1.WaveShapeComboBox.SelectedIndex);
-            mainViewModel.CurrentOscillator1.SelectedWaveShape = WaveShape;
-
-            mainViewModel.PlayWaveProvider(keyIndex);
+            
            
         }
 
@@ -98,9 +98,10 @@ namespace Synthesizer
                 {
                     button.Background = Brushes.White;
                 }
+                mainViewModel.StopWaveProvider();
             }
 
-            mainViewModel.StopWaveProvider();
+            
         }
 
         private void ComboBoxOctave_SelectionChanged(object sender, SelectionChangedEventArgs e)

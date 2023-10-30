@@ -11,7 +11,7 @@ namespace Synthesizer.ViewModel
 {
     public class OscillatorViewModel : ViewModelBase
     {
-        private double _amplitude = 1;
+        private double _amplitude = 0.1;
         public double Amplitude
         {
             get
