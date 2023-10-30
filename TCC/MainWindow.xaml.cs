@@ -68,12 +68,14 @@ namespace Synthesizer
                 Button button = (Button)this.keyboard.FindName($"{keyNote}");
                 
                 button.Background = Brushes.DeepSkyBlue;
+
+                SignalGeneratorType WaveShape = OscillatorViewModel.SelectWaveShape(Oscillator1.WaveShapeComboBox.SelectedIndex);
+                mainViewModel.CurrentOscillator1.SelectedWaveShape = WaveShape;
+
+                mainViewModel.PlayWaveProvider(keyIndex);
             }
 
-            SignalGeneratorType WaveShape = OscillatorViewModel.SelectWaveShape(Oscillator1.WaveShapeComboBox.SelectedIndex);
-            mainViewModel.CurrentOscillator1.SelectedWaveShape = WaveShape;
-
-            mainViewModel.PlayWaveProvider(keyIndex);
+            
            
         }
 
@@ -96,9 +98,10 @@ namespace Synthesizer
                 {
                     button.Background = Brushes.White;
                 }
+                mainViewModel.StopWaveProvider();
             }
 
-            mainViewModel.StopWaveProvider();
+            
         }
 
         private void ComboBoxOctave_SelectionChanged(object sender, SelectionChangedEventArgs e)
