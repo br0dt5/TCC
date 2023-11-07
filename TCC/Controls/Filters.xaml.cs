@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Synthesizer.Controls
 {
     /// <summary>
-    /// Interação lógica para Filters.xam
+    /// Interação lógica para FiltersCopy.xam
     /// </summary>
     public partial class Filters : UserControl
     {

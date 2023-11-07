@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NAudio.Dsp;
+using NAudio.Wave;
+using Synthesizer.core;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,6 +12,9 @@ namespace Synthesizer.ViewModel
 {
     public class EnvelopeAdsrViewModel: ViewModelBase
     {
+
+        private EnvelopeAdsrProvider EnvelopeAdsr { get; set; }
+
         private double _attack = 1;
         public double Attack
         {
@@ -63,6 +69,20 @@ namespace Synthesizer.ViewModel
                 _release = ((double)(long)(value * 100)) / 100.0;
                 NotifyPropertyChanged("Release");
             }
+        }
+
+        public EnvelopeAdsrProvider EnvelopeAsdrService(ISampleProvider sampleProvider)
+        {
+
+            EnvelopeAdsr = new EnvelopeAdsrProvider(sampleProvider.ToMono())
+            {
+                AttackSeconds = (float)Attack,
+                DecaySeconds = (float)Decay,
+                Sustain = (float)Sustain,
+                ReleaseSeconds = (float)Release,
+            };
+
+            return EnvelopeAdsr;
         }
         
     }
