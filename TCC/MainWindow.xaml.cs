@@ -7,6 +7,7 @@ using Synthesizer.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,11 +73,11 @@ namespace Synthesizer
                 SignalGeneratorType WaveShape = OscillatorViewModel.SelectWaveShape(Oscillator1.WaveShapeComboBox.SelectedIndex);
                 mainViewModel.CurrentOscillator1.SelectedWaveShape = WaveShape;
 
-                mainViewModel.PlayWaveProvider(keyIndex);
-            }
+                int filtertypeIndex = this.FilterComponent.FilterComboBox.SelectedIndex;
+                mainViewModel.CurrentFilter.SelectFilterType(filtertypeIndex);
 
-            
-           
+                mainViewModel.PlayWaveProvider(keyIndex);
+            }                       
         }
 
         private void Window_KeyUp(object sender, KeyEventArgs e)
@@ -100,7 +101,6 @@ namespace Synthesizer
                 }
                 mainViewModel.StopWaveProvider();
             }
-
             
         }
 

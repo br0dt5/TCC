@@ -15,7 +15,7 @@
     
     <Window.Resources>
         <Style x:Key="CloseWindowStyle" TargetType="Ellipse">
-            
+
             <Setter Property="Fill" Value="#CE3232" />
             <Setter Property="Width" Value="13" />
             <Setter Property="Height" Value="13" />
@@ -128,7 +128,7 @@
                         <custom:Envelope Grid.Column="0" Grid.Row="1" 
                             Grid.ColumnSpan="2"
                             HorizontalAlignment="Right"
-                            DataContext="{Binding CurrentEnvelopeAdsr}"
+                            DataContext="{Binding EnvelopeAdsr}"
                             />
 
                         <custom:Lfo Grid.Column="2" Grid.Row="1" DataContext="{Binding CurrentLfo}"/>
@@ -154,7 +154,7 @@
                         
                     </Grid.RowDefinitions>
 
-                    <custom:Filters Grid.Row="0" VerticalAlignment="Bottom" DataContext="{Binding CurrentFilter}"/>
+                    <custom:Filters x:Name="FilterComponent" Grid.Row="0" VerticalAlignment="Bottom" DataContext="{Binding CurrentFilter}"/>
                     <custom:Effects Grid.Row="1" DataContext="{Binding CurrentEffect}"/>
                     
 

@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Windows.Forms;
 using NAudio.Wave.SampleProviders;
+using System.Windows;
+using Synthesizer.Controls;
 
 namespace Synthesizer.ViewModel
 {
     public class OscillatorViewModel : ViewModelBase
-    {
+    {             
+
         private double _amplitude = 0.1;
         public double Amplitude
         {
@@ -20,7 +23,6 @@ namespace Synthesizer.ViewModel
             }
             set
             {
-
                 _amplitude = ((double)(long)(value * 100)) / 100.0;
                 NotifyPropertyChanged("Amplitude");
             }
