@@ -11,8 +11,12 @@ using System.Windows.Input;
 namespace Synthesizer.ViewModel
 {
     public class KeyboardViewModel : ViewModelBase
-    {        
-        
+    {
+
+        private static short TwoOctavesSemiNotesNumber = 24;
+        private static float ratioBetweenNotes = 1.0595f;
+        private static float firstMusicalNoteFrequency = 32.70f;
+
         public static List<KeyboardManager> keyboardNotes = new List<KeyboardManager>
         {
             new KeyboardManager{ keyNote = Key.Q, TypeNote = "raw", ButtonName = "Q" },             
@@ -41,7 +45,39 @@ namespace Synthesizer.ViewModel
             new KeyboardManager{ keyNote = Key.C, TypeNote = "raw", ButtonName = "C" },           
         };
 
-       
+        public static float[] GenerateNotesFrequency(short Octave)
+        {
+            short TwoOctavesSemiNotesNumber = 24;
+            const float ratioBetweenNotes = 1.0595f;
+            float[] NotesFrequency = new float[TwoOctavesSemiNotesNumber];
+            NotesFrequency[0] = firstMusicalNoteFrequency;
+
+            short noteIndex = 1;
+
+            for (short twoOctavesIterator = 0; twoOctavesIterator < TwoOctavesSemiNotesNumber; twoOctavesIterator++)
+            {
+                short positionInScale = CapturePositionNoteInScale(noteIndex, Octave);
+                NotesFrequency[twoOctavesIterator] = (float)(firstMusicalNoteFrequency * Math.Pow(ratioBetweenNotes, (positionInScale - 1)));
+                noteIndex++;
+                if (noteIndex == 12)
+                {
+                    noteIndex = 1;
+                    Octave++;
+                }
+            }
+
+            return NotesFrequency;
+        }
+
+
+        public static short CapturePositionNoteInScale(short positionInOctave, short Octave)
+        {
+            // Put Octave Again            
+            short semitonsInOneOctave = 12;
+            short positionInScale = (short)((semitonsInOneOctave * Octave) - (semitonsInOneOctave - positionInOctave));
+            return positionInScale;
+        }
+
     }
 }
 

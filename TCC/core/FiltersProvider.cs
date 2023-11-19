@@ -16,16 +16,18 @@ namespace Synthesizer.core
 
         public WaveFormat WaveFormat => source.WaveFormat;
 
-        public FiltersProvider(ISampleProvider source, float cutoffFrequency, string filterType)
+        public FiltersProvider(ISampleProvider source, float cutoffFrequency, float resonance, string filterType)
         {
             this.source = source;
             if(filterType == "LowPassFilter")
             {
-                filter = BiQuadFilter.LowPassFilter(WaveFormat.SampleRate, cutoffFrequency, 1.0f);
+                filter = BiQuadFilter.LowPassFilter(WaveFormat.SampleRate, cutoffFrequency, resonance);
+                
             }
             else if(filterType == "HighPassFilter")
             {
-                filter = BiQuadFilter.HighPassFilter(WaveFormat.SampleRate, cutoffFrequency, 1.0f);
+                filter = BiQuadFilter.HighPassFilter(WaveFormat.SampleRate, cutoffFrequency, resonance);
+                
             }
             
         }
