@@ -16,17 +16,18 @@ namespace Synthesizer.ViewModel
         private string SelectedFilterType { get; set; }
 
         private FiltersProvider FilterProvider { get; set; }
-        private double _ressonance = 1;
-        public double Ressonance
+
+        private double _resonance = 1;
+        public double Resonance
         {
             get
             {
-                return _ressonance;
+                return _resonance;
             }
             set
             {
-                _ressonance = ((double)(long)(value * 100)) / 100.0;
-                NotifyPropertyChanged("Ressonance");
+                _resonance = ((double)(long)(value * 100)) / 100.0;
+                NotifyPropertyChanged("Resonance");
             }
         }
 
@@ -55,7 +56,7 @@ namespace Synthesizer.ViewModel
 
         public FiltersProvider FilterProviderService(ISampleProvider source)
         {
-            FilterProvider = new FiltersProvider(source, (float)this.CutOff, SelectedFilterType);
+            FilterProvider = new FiltersProvider(source, (float)this.CutOff, (float)Resonance, SelectedFilterType);
             return FilterProvider;
         }
 
