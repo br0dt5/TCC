@@ -116,7 +116,7 @@ namespace Synthesizer.core
 
         public void UpdateChorusLevel()
         {
-            ModulationDepth = 20.0f * (float)EffectViewModel.Chorus;
+            ModulationDepth = 0.01f * (float)EffectViewModel.Chorus;
         }
     }
 
