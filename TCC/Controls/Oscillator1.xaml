@@ -122,10 +122,10 @@
                                     Foreground="DarkRed" Background="Transparent" 
                                     Value="{Binding Amplitude, Mode=TwoWay}" Margin="-70,-40,0,0">
 
-                                    <local:RotaryControl.NumberOfMajorTicks>6</local:RotaryControl.NumberOfMajorTicks>
+                                    <local:RotaryControl.NumberOfMajorTicks>2</local:RotaryControl.NumberOfMajorTicks>
                                     <local:RotaryControl.MajorTickIncrement>0.2</local:RotaryControl.MajorTickIncrement>
                                     <local:RotaryControl.MajorTickBrush>#F28907</local:RotaryControl.MajorTickBrush>
-                                    <local:RotaryControl.NumberOfMinorTicks>9</local:RotaryControl.NumberOfMinorTicks>
+                                    <local:RotaryControl.NumberOfMinorTicks>8</local:RotaryControl.NumberOfMinorTicks>
                                     <local:RotaryControl.MinorTickBrush>#F28907</local:RotaryControl.MinorTickBrush>
                                     <local:RotaryControl.FontBrush>Transparent</local:RotaryControl.FontBrush>
                                     <local:RotaryControl.PointerFill>
@@ -154,7 +154,7 @@
                                     </local:RotaryControl.LayoutTransform>
                                 </local:RotaryControl>
 
-                                <Label Grid.Row="2" Grid.Column="1" Content="{Binding Amplitude}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                                <Label Grid.Row="2" Grid.Column="1" Content="{Binding AmpDecibelsDisplay}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Center"
                                 Margin="-125,0,0,-10" Foreground="White"/>
 
                                 <!--// Grid.Row="0" Height="50" Width="50"//-->

@@ -1,4 +1,6 @@
-﻿using NAudio.Dsp;
+﻿using LiveCharts.Wpf;
+using LiveCharts;
+using NAudio.Dsp;
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using Synthesizer.Controls;
@@ -12,6 +14,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using LiveCharts.Defaults;
 
 namespace Synthesizer.ViewModel
 {
@@ -60,7 +64,8 @@ namespace Synthesizer.ViewModel
             CurrentLfo = new LfoViewModel();
             CurrentEffect = new EffectViewModel();
             CurrentFilter = new FilterViewModel();
-            EnvelopeAdsr = new EnvelopeAdsrViewModel();
+            EnvelopeAdsr = new EnvelopeAdsrViewModel();                                    
+
             CurrentMasterAmplitude = new MasterAmplitudeViewModel();            
 
             OctaveCollection = new ObservableCollection<OctaveViewModel>
@@ -71,6 +76,7 @@ namespace Synthesizer.ViewModel
             };          
 
             GenerateKeyboardNotes();
+
         }       
 
         public void PlayWaveProvider(float NoteIndex)
@@ -84,8 +90,7 @@ namespace Synthesizer.ViewModel
                     Frequency = NoteFrequency,
                     Gain = CurrentOscillator1.Amplitude,
                     Type = CurrentOscillator1.SelectedWaveShape
-                };              
-
+                }; 
                 
 
                 filterProvider = CurrentFilter.FilterProviderService(signalProvider);
@@ -93,6 +98,7 @@ namespace Synthesizer.ViewModel
                 adsrSampleProvider = EnvelopeAdsr.EnvelopeAsdrService(filterProvider);                
 
                 waveOut = new WaveOut();
+                waveOut.Volume = (float)CurrentMasterAmplitude.MasterAmplitude;
                 waveOut.Init(adsrSampleProvider);
                 waveOut.Play();
                 playingWaveSound = true;
