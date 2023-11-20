@@ -9,6 +9,9 @@ namespace Synthesizer.ViewModel
 {
     public class LfoViewModel : ViewModelBase
     {
+
+        public string SelectedLfoType { get; set; }
+
         private double _amount = 1;
         public double Amount
         {
@@ -31,6 +34,24 @@ namespace Synthesizer.ViewModel
                 _frequency = ((double)(long)(value * 100)) / 100.0;
                 NotifyPropertyChanged("Frequency");
             }
+        }
+
+        public void SelectLfoType(int lfoIndex)
+        {
+            switch (lfoIndex)
+            {
+                case 0:
+                    SelectedLfoType = "Senoidal";
+                    break;
+                case 1:
+                    SelectedLfoType = "Quadrada";
+                    break;
+                case 2:
+                    SelectedLfoType = "Triangular";
+                    break;
+
+            }
+            NotifyPropertyChanged("SelectedLfoType");
         }
         
     }
