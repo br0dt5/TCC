@@ -131,7 +131,7 @@
                             DataContext="{Binding EnvelopeAdsr}"
                             />
 
-                        <custom:Lfo Grid.Column="2" Grid.Row="1" DataContext="{Binding CurrentLfo}"/>
+                        <custom:Lfo x:Name="LfoComponent" Grid.Column="2" Grid.Row="1" DataContext="{Binding CurrentLfo}"/>
 
                     </Grid>
                     
