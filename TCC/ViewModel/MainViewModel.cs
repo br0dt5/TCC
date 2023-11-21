@@ -61,8 +61,8 @@ namespace Synthesizer.ViewModel
 
         public MainViewModel() 
         { 
-            CurrentOscillator1 = new OscillatorViewModel();
-            CurrentOscillator2 = new OscillatorViewModel();
+            CurrentOscillator1 = new OscillatorViewModel("OSC 1");            
+            CurrentOscillator2 = new OscillatorViewModel("OSC 2");
             CurrentLfo = new LfoViewModel();
             CurrentEffect = new EffectViewModel();
             CurrentFilter = new FilterViewModel();

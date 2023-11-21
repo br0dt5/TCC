@@ -35,9 +35,10 @@
                FontWeight="SemiBold"
                FontSize="22"                                           
                Foreground="#F28907"                                      
-               >
-                    OSC 1
-                </Label>
+               Content="{Binding Name}"
+               />
+
+
 
                 <Border Grid.Row="1"
                 BorderBrush="Black"

@@ -15,6 +15,8 @@ namespace Synthesizer.ViewModel
     public class OscillatorViewModel : ViewModelBase
     {                     
 
+        public string Name { get; set; }
+
         private string _ampDecibelsDisplay = $"{Math.Round(percent(0.1), 2)}%";
         public string AmpDecibelsDisplay
         {
@@ -55,6 +57,11 @@ namespace Synthesizer.ViewModel
                     NotifyPropertyChanged("SelectedWaveShape");
                 }
             } 
+        }
+
+        public OscillatorViewModel(string name) 
+        {
+            this.Name = name;
         }
 
         public static double percent(double value)
