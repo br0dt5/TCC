@@ -86,6 +86,7 @@
                         >
                                 <ComboBox 
                                Background="Black"
+                                    Name="LfoComboBox"
                                >
                                     <ComboBoxItem IsSelected="True" Content="Senoidal"/>
                                     <ComboBoxItem Content="Quadrada"/>

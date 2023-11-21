@@ -76,6 +76,9 @@ namespace Synthesizer
                 int filtertypeIndex = this.FilterComponent.FilterComboBox.SelectedIndex;
                 mainViewModel.CurrentFilter.SelectFilterType(filtertypeIndex);
 
+                int lfoTypeIndex = this.LfoComponent.LfoComboBox.SelectedIndex;
+                mainViewModel.CurrentLfo.SelectLfoType(lfoTypeIndex);
+
                 mainViewModel.PlayWaveProvider(keyIndex);
             }                       
         }

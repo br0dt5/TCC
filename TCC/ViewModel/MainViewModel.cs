@@ -95,11 +95,20 @@ namespace Synthesizer.ViewModel
 
                 filterProvider = CurrentFilter.FilterProviderService(signalProvider);
 
-                adsrSampleProvider = EnvelopeAdsr.EnvelopeAsdrService(filterProvider);                
+                adsrSampleProvider = EnvelopeAdsr.EnvelopeAsdrService(filterProvider);
+
+                CustomReverbEffect reverbEffect = new CustomReverbEffect(adsrSampleProvider, CurrentEffect);
+                CustomChorusEffect chorusEffect = new CustomChorusEffect(reverbEffect, CurrentEffect);
+                LfoProvider lfoProvider = new LfoProvider(chorusEffect, CurrentLfo);
+                
 
                 waveOut = new WaveOut();
+<<<<<<< HEAD
                 waveOut.Volume = (float)CurrentMasterAmplitude.MasterAmplitude;
                 waveOut.Init(adsrSampleProvider);
+=======
+                waveOut.Init(lfoProvider);
+>>>>>>> 06851a34253779495b5b2a00c8cbe96a8e782004
                 waveOut.Play();
                 playingWaveSound = true;
             }
