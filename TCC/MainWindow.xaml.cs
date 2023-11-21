@@ -70,8 +70,11 @@ namespace Synthesizer
                 
                 button.Background = Brushes.DeepSkyBlue;
 
-                SignalGeneratorType WaveShape = OscillatorViewModel.SelectWaveShape(Oscillator1.WaveShapeComboBox.SelectedIndex);
-                mainViewModel.CurrentOscillator1.SelectedWaveShape = WaveShape;
+                SignalGeneratorType WaveShape1 = OscillatorViewModel.SelectWaveShape(Oscillator1.WaveShapeComboBox.SelectedIndex);
+                mainViewModel.CurrentOscillator1.SelectedWaveShape = WaveShape1;
+
+                SignalGeneratorType WaveShape2 = OscillatorViewModel.SelectWaveShape(Oscillator2.WaveShapeComboBox.SelectedIndex);
+                mainViewModel.CurrentOscillator2.SelectedWaveShape = WaveShape2;
 
                 int filtertypeIndex = this.FilterComponent.FilterComboBox.SelectedIndex;
                 mainViewModel.CurrentFilter.SelectFilterType(filtertypeIndex);

@@ -165,7 +165,7 @@
                                     Foreground="DarkRed" Background="Transparent" 
                                     Value="{Binding Frequency, Mode=TwoWay}" Margin="0,-40,-12,0">
 
-                                    <local:RotaryControl.NumberOfMajorTicks>6</local:RotaryControl.NumberOfMajorTicks>
+                                    <local:RotaryControl.NumberOfMajorTicks>20</local:RotaryControl.NumberOfMajorTicks>
                                     <local:RotaryControl.MajorTickIncrement>0.2</local:RotaryControl.MajorTickIncrement>
                                     <local:RotaryControl.MajorTickBrush>#F28907</local:RotaryControl.MajorTickBrush>
                                     <local:RotaryControl.NumberOfMinorTicks>9</local:RotaryControl.NumberOfMinorTicks>

@@ -12,7 +12,7 @@ namespace Synthesizer.ViewModel
 
         public string SelectedLfoType { get; set; }
 
-        private double _amount = 1;
+        private double _amount = 0;
         public double Amount
         {
             get { return _amount; }
@@ -22,7 +22,7 @@ namespace Synthesizer.ViewModel
             }
         }
 
-        private double _frequency = 1;
+        private double _frequency = 0;
         public double Frequency
         {
             get

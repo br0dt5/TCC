@@ -41,26 +41,26 @@ namespace Synthesizer.ViewModel
         
 
 
-        private string _attackDisplay = "1s";
+        private string _attackDisplay = "0.5s";
         public string AttackDisplay 
         {
             get { return _attackDisplay; }
         }
 
-        private string _decayDisplay = "1s";
+        private string _decayDisplay = "0.5s";
         public string DecayDisplay
         {
             get { return _decayDisplay; }
         }
 
-        private string _sustainDisplay = "100%";
+        private string _sustainDisplay = "50%";
 
         public string SustainDisplay
         {
             get { return _sustainDisplay; }
         }
 
-        private string _releaseDisplay = "1s";
+        private string _releaseDisplay = "0.5s";
         public string ReleaseDisplay
         { 
             get { return _releaseDisplay; } 
@@ -69,7 +69,7 @@ namespace Synthesizer.ViewModel
 
         private EnvelopeAdsrProvider EnvelopeAdsr { get; set; }
 
-        private double _attack = 1;
+        private double _attack = 0.5;
         public double Attack
         {
             get
@@ -88,7 +88,7 @@ namespace Synthesizer.ViewModel
             }
         }
 
-        private double _decay = 1;
+        private double _decay = 0.5;
         public double Decay
         {
             get
@@ -105,7 +105,7 @@ namespace Synthesizer.ViewModel
             }
         }
 
-        private double _sustain = 1;
+        private double _sustain = 0.5;
         public double Sustain
         {
             get
@@ -123,7 +123,7 @@ namespace Synthesizer.ViewModel
             }
         }
 
-        private double _release = 1;
+        private double _release = 0.5;
         public double Release
         {
             get

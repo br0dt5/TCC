@@ -48,7 +48,8 @@ namespace Synthesizer.ViewModel
 
         private ICommand ChangeOctaveCommand { get; set; }
 
-        private SignalGenerator signalProvider;
+        private SignalGenerator signalProvider1;
+        private SignalGenerator signalProvider2;
         private WaveOut waveOut;
         private EnvelopeAdsrProvider adsrSampleProvider;
         private FiltersProvider filterProvider;
@@ -60,7 +61,8 @@ namespace Synthesizer.ViewModel
 
         public MainViewModel() 
         { 
-            CurrentOscillator1 = new OscillatorViewModel();            
+            CurrentOscillator1 = new OscillatorViewModel();
+            CurrentOscillator2 = new OscillatorViewModel();
             CurrentLfo = new LfoViewModel();
             CurrentEffect = new EffectViewModel();
             CurrentFilter = new FilterViewModel();
@@ -76,7 +78,6 @@ namespace Synthesizer.ViewModel
             };          
 
             GenerateKeyboardNotes();
-
         }       
 
         public void PlayWaveProvider(float NoteIndex)
@@ -85,15 +86,23 @@ namespace Synthesizer.ViewModel
             float NoteFrequency = NotesFrequency[(short)NoteIndex];
             if (playingWaveSound == false)
             {
-                signalProvider = new SignalGenerator()
+                signalProvider1 = new SignalGenerator()
                 {
                     Frequency = NoteFrequency,
                     Gain = CurrentOscillator1.Amplitude,
                     Type = CurrentOscillator1.SelectedWaveShape
                 }; 
                 
+                signalProvider2 = new SignalGenerator()
+                {
+                    Frequency = NoteFrequency,
+                    Gain = CurrentOscillator2.Amplitude,
+                    Type = CurrentOscillator2.SelectedWaveShape
+                };
 
-                filterProvider = CurrentFilter.FilterProviderService(signalProvider);
+                var mixingSignalProviders = new MixingSampleProvider(new[] { signalProvider1, signalProvider2});
+
+                filterProvider = CurrentFilter.FilterProviderService(mixingSignalProviders);
 
                 adsrSampleProvider = EnvelopeAdsr.EnvelopeAsdrService(filterProvider);
 
@@ -103,12 +112,11 @@ namespace Synthesizer.ViewModel
                 
 
                 waveOut = new WaveOut();
-<<<<<<< HEAD
                 waveOut.Volume = (float)CurrentMasterAmplitude.MasterAmplitude;
                 waveOut.Init(adsrSampleProvider);
-=======
+
                 waveOut.Init(lfoProvider);
->>>>>>> 06851a34253779495b5b2a00c8cbe96a8e782004
+
                 waveOut.Play();
                 playingWaveSound = true;
             }

@@ -28,6 +28,10 @@ namespace Synthesizer.Controls
             InitializeComponent();            
           
         }
-        
+
+        private void _dialVolume2_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

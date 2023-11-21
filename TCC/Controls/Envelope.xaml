@@ -87,7 +87,7 @@
                                 Foreground="DarkRed" Background="Transparent" 
                                 Value="{Binding Attack, Mode=TwoWay}" Margin="-38,-38,0,-2" Grid.ColumnSpan="2" Width="153">
 
-                                    <local:RotaryControl.NumberOfMajorTicks>6</local:RotaryControl.NumberOfMajorTicks>
+                                    <local:RotaryControl.NumberOfMajorTicks>10</local:RotaryControl.NumberOfMajorTicks>
                                     <local:RotaryControl.MajorTickIncrement>0.2</local:RotaryControl.MajorTickIncrement>
                                     <local:RotaryControl.MajorTickBrush>#F28907</local:RotaryControl.MajorTickBrush>
                                     <local:RotaryControl.NumberOfMinorTicks>9</local:RotaryControl.NumberOfMinorTicks>
@@ -152,7 +152,7 @@
                             Foreground="DarkRed" Background="Transparent" 
                             Value="{Binding Decay, Mode=TwoWay}" Margin="41,138,0,-2" Width="153" Grid.RowSpan="2" RenderTransformOrigin="0.302,1.048">
 
-                            <local:RotaryControl.NumberOfMajorTicks>6</local:RotaryControl.NumberOfMajorTicks>
+                            <local:RotaryControl.NumberOfMajorTicks>10</local:RotaryControl.NumberOfMajorTicks>
                             <local:RotaryControl.MajorTickIncrement>0.2</local:RotaryControl.MajorTickIncrement>
                             <local:RotaryControl.MajorTickBrush>#F28907</local:RotaryControl.MajorTickBrush>
                             <local:RotaryControl.NumberOfMinorTicks>9</local:RotaryControl.NumberOfMinorTicks>
@@ -224,7 +224,7 @@
                             Foreground="DarkRed" Background="Transparent" 
                             Value="{Binding Release, Mode=TwoWay}" Margin="195,138,0,-2" Width="153" Grid.RowSpan="2" RenderTransformOrigin="0.302,1.048">
 
-                            <local:RotaryControl.NumberOfMajorTicks>6</local:RotaryControl.NumberOfMajorTicks>
+                            <local:RotaryControl.NumberOfMajorTicks>10</local:RotaryControl.NumberOfMajorTicks>
                             <local:RotaryControl.MajorTickIncrement>0.2</local:RotaryControl.MajorTickIncrement>
                             <local:RotaryControl.MajorTickBrush>#F28907</local:RotaryControl.MajorTickBrush>
                             <local:RotaryControl.NumberOfMinorTicks>9</local:RotaryControl.NumberOfMinorTicks>

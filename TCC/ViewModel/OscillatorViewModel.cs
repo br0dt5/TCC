@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using NAudio.Wave.SampleProviders;
 using System.Windows;
 using Synthesizer.Controls;
-using Synthesizer.Utils;
+
 
 namespace Synthesizer.ViewModel
 {
@@ -37,20 +37,7 @@ namespace Synthesizer.ViewModel
                 NotifyPropertyChanged("AmpDecibelsDisplay");
             }
         }
-
-        private double _frequency = 1;
-        public double Frequency
-        {
-            get
-            {
-                return _frequency;
-            }
-            set
-            {
-                _frequency = ((double)(long)(value * 100)) / 100.0;
-                NotifyPropertyChanged("Frequency");
-            }
-        }               
+    
 
         private SignalGeneratorType _selectedWaveShape;
 

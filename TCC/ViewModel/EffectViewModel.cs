@@ -9,7 +9,7 @@ namespace Synthesizer.ViewModel
 {
     public class EffectViewModel : ViewModelBase
     {
-        private double _chorus = 1;
+        private double _chorus = 0;
         public double Chorus
         {
             get
@@ -23,7 +23,7 @@ namespace Synthesizer.ViewModel
             }
         }
 
-        private double _reverb = 1;
+        private double _reverb = 0;
         public double Reverb
         {
             get

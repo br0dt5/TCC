@@ -119,6 +119,7 @@
                                              
 
                         <custom:Oscillator Grid.Column="1" x:Name="Oscillator1" DataContext="{Binding CurrentOscillator1}"/>
+                        <custom:Oscillator Grid.Column="2" x:Name="Oscillator2" DataContext="{Binding CurrentOscillator2}"/>
 
                         
 
