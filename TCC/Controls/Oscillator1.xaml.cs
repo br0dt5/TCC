@@ -21,7 +21,8 @@ namespace Synthesizer.Controls
     /// Interação lógica para Oscillator.xam
     /// </summary>
     public partial class Oscillator : UserControl
-    {       
+    {        
+       
         public Oscillator()
         {
             InitializeComponent();            

@@ -5,11 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Synthesizer.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="252" d:DesignWidth="218">
+
     <StackPanel Grid.Column="1" Grid.Row="0">
         <Border  BorderThickness="2,2,2,2" 
          BorderBrush="#F28907"
-         Height="192" 
+         Height="252" 
          Width="218"
          >
             <Grid Background="#20D9D9D9">
@@ -30,11 +31,11 @@
                 </Border>
 
                 <Label Margin="10,0,0,0"
-                   VerticalAlignment="Center"
-                   FontWeight="SemiBold"
-                   FontSize="22"                                           
-                   Foreground="#F28907"                                      
-                   >
+               VerticalAlignment="Center"
+               FontWeight="SemiBold"
+               FontSize="22"                                           
+               Foreground="#F28907"                                      
+               >
                     Filtros
                 </Label>
 
@@ -48,7 +49,7 @@
 
                         <Grid.RowDefinitions>
 
-                            
+                            <RowDefinition Height="61" />
                             <RowDefinition Height="*" />
 
                         </Grid.RowDefinitions>
@@ -69,6 +70,28 @@
                                 <RowDefinition Height="*"/>
 
                             </Grid.RowDefinitions>
+
+
+                            <Label Grid.Row="0"
+                           Foreground="White"
+                           >
+                                Tipos de Filtros
+                            </Label>
+
+                            <Border Grid.Row="1" 
+                        BorderBrush="#9E9E9E"
+                        BorderThickness="3"
+                        CornerRadius="2"
+                        >
+                                <ComboBox 
+                               Name="FilterComboBox"
+                               Background="Black"                                  
+                               >
+                                    <ComboBoxItem IsSelected="True" Content="Passa-baixa"/>
+                                    <ComboBoxItem Content="Passa-alta"/>
+                                  
+                                </ComboBox>
+                            </Border>
 
                         </Grid>
 
@@ -92,8 +115,8 @@
                                 </Label>
                                 <local:RotaryControl HorizontalAlignment="Left"
                                 x:Name="_dialVolume2" Grid.RowSpan="2" Grid.Row="0"
-                                Foreground="DarkRed" Background="Transparent" 
-                                 Value="{Binding Ressonance, Mode=TwoWay}" Margin="-70,-40,0,0">
+                                    Foreground="DarkRed" Background="Transparent" 
+                                    Value="{Binding Resonance, Mode=TwoWay}" Margin="-70,-40,0,0">
 
                                     <local:RotaryControl.NumberOfMajorTicks>6</local:RotaryControl.NumberOfMajorTicks>
                                     <local:RotaryControl.MajorTickIncrement>0.2</local:RotaryControl.MajorTickIncrement>
@@ -127,23 +150,22 @@
                                     </local:RotaryControl.LayoutTransform>
                                 </local:RotaryControl>
 
-                                <Label Grid.Row="2" Grid.Column="1" Content="{Binding Ressonance}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Center"
-                            Margin="-125,0,0,-10" Foreground="White"/>
+                                <Label Grid.Row="2" Grid.Column="1" Content="{Binding Resonance}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                                Margin="-125,0,0,-10" Foreground="White"/>
 
                                 <!--// Grid.Row="0" Height="50" Width="50"//-->
-
                                 <Label Grid.Row="2" Grid.Column="1" FontSize="10" VerticalAlignment="Top" HorizontalAlignment="Center"
-                            Margin="0,-15,-12,0" Foreground="White">
-                                    Corte
+                                Margin="0,-15,-12,0" Foreground="White">
+                                    Freq. de corte
                                 </Label>
 
                                 <local:RotaryControl 
-                            x:Name="_dialVolume" Grid.RowSpan="2" Grid.Row="0"
-                            Foreground="DarkRed" Background="Transparent" 
-                            Value="{Binding CutOff, Mode=TwoWay}" Margin="0,-40,-12,0">
+                                x:Name="_dialVolume" Grid.RowSpan="2" Grid.Row="0"
+                                    Foreground="DarkRed" Background="Transparent" 
+                                    Value="{Binding CutOff, Mode=TwoWay}" Margin="0,-40,-12,0">
 
-                                    <local:RotaryControl.NumberOfMajorTicks>6</local:RotaryControl.NumberOfMajorTicks>
-                                    <local:RotaryControl.MajorTickIncrement>0.2</local:RotaryControl.MajorTickIncrement>
+                                    <local:RotaryControl.NumberOfMajorTicks>11</local:RotaryControl.NumberOfMajorTicks>
+                                    <local:RotaryControl.MajorTickIncrement>200</local:RotaryControl.MajorTickIncrement>
                                     <local:RotaryControl.MajorTickBrush>#F28907</local:RotaryControl.MajorTickBrush>
                                     <local:RotaryControl.NumberOfMinorTicks>9</local:RotaryControl.NumberOfMinorTicks>
                                     <local:RotaryControl.MinorTickBrush>#F28907</local:RotaryControl.MinorTickBrush>
@@ -173,12 +195,18 @@
                                         <ScaleTransform  ScaleX="0.75" ScaleY="0.75"/>
                                     </local:RotaryControl.LayoutTransform>
                                 </local:RotaryControl>
-                                <Label Grid.Row="2" Grid.Column="1" Content="{Binding CutOff}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Center"
-                               Margin="0,0,-10,-10" Foreground="White"/>
+                                <Label Grid.Row="2" Grid.Column="1" Content="{Binding CutOffDisplay}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                                       Margin="0,0,-10,-10" Foreground="White"/>
+
 
                             </Grid>
 
+
                         </GroupBox>
+
+
+
+
 
                     </Grid>
 
@@ -189,3 +217,4 @@
         </Border>
     </StackPanel>
 </UserControl>
+

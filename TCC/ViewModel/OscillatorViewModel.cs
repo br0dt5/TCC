@@ -6,12 +6,23 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Windows.Forms;
 using NAudio.Wave.SampleProviders;
+using System.Windows;
+using Synthesizer.Controls;
+using Synthesizer.Utils;
 
 namespace Synthesizer.ViewModel
 {
     public class OscillatorViewModel : ViewModelBase
-    {
-        private double _amplitude = 0.1;
+    {                     
+
+        private string _ampDecibelsDisplay = $"{Math.Round(percent(0.1), 2)}%";
+        public string AmpDecibelsDisplay
+        {
+            get { return _ampDecibelsDisplay; }
+            set { _ampDecibelsDisplay = value;}
+        }
+
+        private double _amplitude = 0.1;       
         public double Amplitude
         {
             get
@@ -20,9 +31,10 @@ namespace Synthesizer.ViewModel
             }
             set
             {
-
-                _amplitude = ((double)(long)(value * 100)) / 100.0;
+                _amplitude = ((double)(long)(value * 100)) / 100.0;                
+                AmpDecibelsDisplay = $"{Math.Round(percent(_amplitude),2)}%";
                 NotifyPropertyChanged("Amplitude");
+                NotifyPropertyChanged("AmpDecibelsDisplay");
             }
         }
 
@@ -57,6 +69,13 @@ namespace Synthesizer.ViewModel
                 }
             } 
         }
+
+        public static double percent(double value)
+        {
+            return (100 * value) / 0.4;
+            
+        }
+      
 
         public static SignalGeneratorType SelectWaveShape(int SelectedIndex)
         {

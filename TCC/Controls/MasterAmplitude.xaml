@@ -50,7 +50,7 @@
                     <ScaleTransform  ScaleX="0.75" ScaleY="0.75"/>
                 </local:RotaryControl.LayoutTransform>
             </local:RotaryControl>
-            <Label Content="{Binding MasterAmplitude}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+            <Label Content="{Binding MasterAmplitudeDisplay}" FontSize="10" VerticalAlignment="Bottom" HorizontalAlignment="Left"
         Margin="60,0,0,-20" Foreground="White"/>
         </Grid>
     </Grid>

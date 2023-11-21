@@ -1,6 +1,10 @@
-﻿using NAudio.Wave;
+﻿using LiveCharts.Wpf;
+using LiveCharts;
+using NAudio.Dsp;
+using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 using Synthesizer.Controls;
+using Synthesizer.core;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +14,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using LiveCharts.Defaults;
 
 namespace Synthesizer.ViewModel
 {
@@ -20,10 +26,9 @@ namespace Synthesizer.ViewModel
         public LfoViewModel CurrentLfo { get; }
         public EffectViewModel CurrentEffect { get; }
         public FilterViewModel CurrentFilter { get; }
-        public EnvelopeAdsrViewModel CurrentEnvelopeAdsr { get; }
-        public MasterAmplitudeViewModel CurrentMasterAmplitude { get; }
+        public EnvelopeAdsrViewModel EnvelopeAdsr { get; }
+        public MasterAmplitudeViewModel CurrentMasterAmplitude { get; }        
         
-
         private short _octave = 2;
         public short Octave
         {
@@ -35,8 +40,7 @@ namespace Synthesizer.ViewModel
             {
                 if(value != _octave)
                 {
-                    _octave = value;
-                    
+                    _octave = value;                    
                 }
             }
         }
@@ -46,37 +50,39 @@ namespace Synthesizer.ViewModel
 
         private SignalGenerator signalProvider;
         private WaveOut waveOut;
-        private AdsrSampleProvider adsrSampleProvider;
-        private bool playingWaveSound = false;
+        private EnvelopeAdsrProvider adsrSampleProvider;
+        private FiltersProvider filterProvider;
+        private bool playingWaveSound = false;        
+        
+        private float currentNoteIndex;
 
-        private float firstMusicalNoteFrequency = 32.70f;
-
-        public float[] musicalNotesFrequencyInAnOctave;
+        private float[] NotesFrequency;
 
         public MainViewModel() 
         { 
-            CurrentOscillator1 = new OscillatorViewModel();
-            CurrentOscillator2 = new OscillatorViewModel();
+            CurrentOscillator1 = new OscillatorViewModel();            
             CurrentLfo = new LfoViewModel();
             CurrentEffect = new EffectViewModel();
             CurrentFilter = new FilterViewModel();
-            CurrentEnvelopeAdsr = new EnvelopeAdsrViewModel();
+            EnvelopeAdsr = new EnvelopeAdsrViewModel();                                    
+
             CurrentMasterAmplitude = new MasterAmplitudeViewModel();            
 
             OctaveCollection = new ObservableCollection<OctaveViewModel>
             {
                 new OctaveViewModel { Octave = 2 },
-                new OctaveViewModel { Octave = 4 },             
-            };                        
+                new OctaveViewModel { Octave = 4 },
+                new OctaveViewModel { Octave = 6 },
+            };          
 
             GenerateKeyboardNotes();
-        }
 
-       
+        }       
 
         public void PlayWaveProvider(float NoteIndex)
         {
-            float NoteFrequency = musicalNotesFrequencyInAnOctave[(short)NoteIndex];
+            currentNoteIndex = NoteIndex;
+            float NoteFrequency = NotesFrequency[(short)NoteIndex];
             if (playingWaveSound == false)
             {
                 signalProvider = new SignalGenerator()
@@ -84,15 +90,15 @@ namespace Synthesizer.ViewModel
                     Frequency = NoteFrequency,
                     Gain = CurrentOscillator1.Amplitude,
                     Type = CurrentOscillator1.SelectedWaveShape
-                };
+                }; 
+                
 
-                adsrSampleProvider = new AdsrSampleProvider(signalProvider.ToMono())
-                {
-                    AttackSeconds = 0.02f,
-                    ReleaseSeconds = 0.02f
-                };
+                filterProvider = CurrentFilter.FilterProviderService(signalProvider);
+
+                adsrSampleProvider = EnvelopeAdsr.EnvelopeAsdrService(filterProvider);                
 
                 waveOut = new WaveOut();
+                waveOut.Volume = (float)CurrentMasterAmplitude.MasterAmplitude;
                 waveOut.Init(adsrSampleProvider);
                 waveOut.Play();
                 playingWaveSound = true;
@@ -108,27 +114,9 @@ namespace Synthesizer.ViewModel
 
         public void GenerateKeyboardNotes()
         {
-            short notesNumberInAnTwoOctaves = 24;
-            const float ratioBetweenMusicalNotes = 1.0595f;
-            musicalNotesFrequencyInAnOctave = new float[notesNumberInAnTwoOctaves];
-            musicalNotesFrequencyInAnOctave[0] = firstMusicalNoteFrequency;
-
-            for (short notesIndex = 0; notesIndex < notesNumberInAnTwoOctaves; notesIndex++)
-            {
-                short positionInScale = CapturePositionNoteInScale(notesIndex);
-                musicalNotesFrequencyInAnOctave[notesIndex] = (float)(firstMusicalNoteFrequency * Math.Pow(ratioBetweenMusicalNotes, (positionInScale - 1)));
-            }
+            NotesFrequency = KeyboardViewModel.GenerateNotesFrequency(Octave);
         }
 
-
-        public short CapturePositionNoteInScale(short positionInOctave)
-        {
-            // Put Octave Again
-            positionInOctave++;
-            short semitonsInOneOctave = 24;
-            short positionInScale = (short)((semitonsInOneOctave * Octave) - (semitonsInOneOctave - positionInOctave));
-            return positionInScale;
-        }
 
     }
 }
