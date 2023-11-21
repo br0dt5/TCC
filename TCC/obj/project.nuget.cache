@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FMwvcdzEORmLKepF53NBuGoqfIF3dt1t7Rgy2gq2Jzh/VYYQ2Pew8gxPaUckw9uMsEJtfTrAVTyT6Sd7ZNhiig==",
+  "dgSpecHash": "zNhS7+8N/TwvvRubaicUEVeq+ySQL5ff8u3gxRDH2SHga9pTpxO3PHvFpQPHWHYn3zFYShj+eq+zuffTXLDBXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\david\\Desktop\\TCC\\TCC\\Synthesizer.csproj",
+  "projectFilePath": "C:\\Users\\david\\Desktop\\tCC\\TCC\\Synthesizer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\david\\.nuget\\packages\\livecharts\\0.9.7\\livecharts.0.9.7.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\livecharts.wpf\\0.9.7\\livecharts.wpf.0.9.7.nupkg.sha512",
